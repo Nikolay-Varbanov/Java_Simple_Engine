@@ -6,7 +6,7 @@ public class EntityList implements Executable {
 	// Facilities
 	private String input = "empty";
 	private int listSize = 0;
-	private int listCurrsor = 0;
+	private int listCurrsor = -1;
 	private boolean isRunning = false;
 	private Executable myExecutables[];
 	// Utilitites
@@ -18,13 +18,24 @@ public class EntityList implements Executable {
 		
 		while(this.isRunning) {
 			
-			System.out.printf("isRunning is: %s", this.isRunning);
+			if(this.listCurrsor >= 0) {
+				// run list element here
+				this.myExecutables[listCurrsor].OnExecute();
+				
+			} else {
 			
-			this.OnInput();
+				this.OnInput();
 			
-			this.Controller();
+				this.Controller();
 			
+			}
 		}
+		
+	};
+	private bool OnInit() {
+		
+	};
+	private bool OnCleanUp() {
 		
 	};
 	private void OnInput() {
@@ -46,11 +57,10 @@ public class EntityList implements Executable {
 			case "/exit": // Task check for "/exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
-				System.out.printf("input after conformation is: %s", this.input);
 				if(this.input.equals("y")) {
 					System.out.println("Exit confirmed. Setting loop control variable");
 					this.isRunning = false; //Task set Loop Controll to false
 				}
 		}
-	}
+	};
 }
