@@ -11,6 +11,8 @@ class TestApp {
 		myEnnityB.OnExecute();
 		
 		Executable myEntityList = new EntityList();
+		
+		myEntityList.OnExecute();
 	
 	}
 }
