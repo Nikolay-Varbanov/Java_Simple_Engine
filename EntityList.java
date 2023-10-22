@@ -18,8 +18,6 @@ public class EntityList implements Executable {
 		
 		while(this.isRunning) {
 			
-			System.out.printf("isRunning is: %s", this.isRunning);
-			
 			this.OnInput();
 			
 			this.Controller();
@@ -46,7 +44,6 @@ public class EntityList implements Executable {
 			case "/exit": // Task check for "/exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
-				System.out.printf("input after conformation is: %s", this.input);
 				if(this.input.equals("y")) {
 					System.out.println("Exit confirmed. Setting loop control variable");
 					this.isRunning = false; //Task set Loop Controll to false
