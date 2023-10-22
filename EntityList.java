@@ -39,7 +39,7 @@ public class EntityList implements Executable {
 				int tempIndex = inputObj.nextInt(); // Task take a int
 				tempIndex--; // make input into an index
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
-					this.listCursor = tempIndex; // Task put index from input into currsor // where is currsor
+					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
 				}
 			case "/exit": // Task check for "/exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
