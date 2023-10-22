@@ -33,10 +33,10 @@ public class EntityList implements Executable {
 		
 	};
 	private boolean OnInit() {
-		
+		return false;
 	};
 	private boolean OnCleanUp() {
-		
+		return false;
 	};
 	private void OnInput() {
 		System.out.println("EntityList now taking input");
