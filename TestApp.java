@@ -5,6 +5,10 @@ class TestApp {
 		Executable myEnnityA = new EntityA();
 		
 		myEnnityA.OnExecute();
+		
+		Executable myEnnityB = new EntityB();
+		
+		myEnnityB.OnExecute();
 	
 	}
 }
