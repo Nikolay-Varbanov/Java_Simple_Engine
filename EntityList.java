@@ -54,6 +54,7 @@ public class EntityList implements Executable {
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
 					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
 				}
+				break;
 			case "/exit": // Task check for "/exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
@@ -61,6 +62,7 @@ public class EntityList implements Executable {
 					System.out.println("Exit confirmed. Setting loop control variable");
 					this.isRunning = false; //Task set Loop Controll to false
 				}
+				break;
 		}
 	};
 }
