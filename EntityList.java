@@ -32,8 +32,8 @@ public class EntityList implements Executable {
 	private void OnRender() { 
 		System.out.println("EntityList reporting from OnRender()");
 	};
-	private Controller() { // implementations
-		switch(this.input); { // Task check input
+	private void Controller() { // implementations
+		switch(this.input) { // Task check input
 			case "\select": // Task check for "\select" // Only for EntityList
 				System.out.printf("Enter an elemnt index between 0 and %s", this.listSize); //Task prompt for index
 				int tempIndex = inputObj.nextInt(); // Task take a int
@@ -44,7 +44,7 @@ public class EntityList implements Executable {
 			case "\exit": // Task check for "\exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter \"y\" to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
-				if(input == 'y'){
+				if(input == "y"){
 					this.isRunning = false; //Task set Loop Controll to false
 				}
 		}
