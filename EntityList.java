@@ -6,7 +6,7 @@ public class EntityList implements Executable {
 	// Facilities
 	private String input = "empty";
 	private int listSize = 0;
-	private int listCurrsor = 0;
+	private int listCurrsor = -1;
 	private boolean isRunning = false;
 	private Executable myExecutables[];
 	// Utilitites
@@ -18,11 +18,24 @@ public class EntityList implements Executable {
 		
 		while(this.isRunning) {
 			
-			this.OnInput();
+			if(this.listCurrsor >= 0) {
+				// run list element here
+				this.myExecutables[listCurrsor].OnExecute();
+				
+			} else {
 			
-			this.Controller();
+				this.OnInput();
 			
+				this.Controller();
+			
+			}
 		}
+		
+	};
+	private bool OnInit() {
+		
+	};
+	private bool OnCleanUp() {
 		
 	};
 	private void OnInput() {
@@ -49,5 +62,5 @@ public class EntityList implements Executable {
 					this.isRunning = false; //Task set Loop Controll to false
 				}
 		}
-	}
+	};
 }
