@@ -9,6 +9,8 @@ class TestApp {
 		Executable myEnnityB = new EntityB();
 		
 		myEnnityB.OnExecute();
+		
+		Executable myEntityList = new EntityList();
 	
 	}
 }
