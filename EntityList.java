@@ -16,7 +16,7 @@ public class EntityList implements Executable {
 		
 		System.out.println("EntityList now executing");
 		
-		while(isRunning) {
+		while(this.isRunning) {
 			
 			this.OnInput();
 			
