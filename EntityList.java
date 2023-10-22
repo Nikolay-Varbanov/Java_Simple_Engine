@@ -32,10 +32,10 @@ public class EntityList implements Executable {
 		}
 		
 	};
-	private bool OnInit() {
+	private boolean OnInit() {
 		
 	};
-	private bool OnCleanUp() {
+	private boolean OnCleanUp() {
 		
 	};
 	private void OnInput() {
