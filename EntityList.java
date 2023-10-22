@@ -34,15 +34,15 @@ public class EntityList implements Executable {
 	};
 	private void Controller() { // implementations
 		switch(this.input) { // Task check input
-			case "\select": // Task check for "\select" // Only for EntityList
+			case "/select": // Task check for "/select" // Only for EntityList
 				System.out.printf("Enter an elemnt index between 0 and %s", this.listSize); //Task prompt for index
 				int tempIndex = inputObj.nextInt(); // Task take a int
 				tempIndex--; // make input into an index
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
 					this.listCursor = tempIndex; // Task put index from input into currsor // where is currsor
 				}
-			case "\exit": // Task check for "\exit" // In all implementations
-				System.out.println("Do you want to exit EntityList? enter \"y\" to confirm"); //Task prompt for conformation "y"
+			case "/exit": // Task check for "/exit" // In all implementations
+				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
 				if(input == "y"){
 					this.isRunning = false; //Task set Loop Controll to false
