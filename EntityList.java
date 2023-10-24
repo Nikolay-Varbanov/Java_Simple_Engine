@@ -64,14 +64,7 @@ public class EntityList extends Common_Executable {
 		
 		switch(super.input) { // Task check input
 			case "/select": // Task check for "/select" // Only for EntityList
-				System.out.printf("Enter an elemnt index between 1 and %s%n", this.listSize); //Task prompt for index
-				int tempIndex = super.inputObj.nextInt(); // Task take a int
-				tempIndex--; // make input into an index
-				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
-					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
-				} else {
-					System.out.println("EntityList index out of bound");
-				}
+				this.Select();
 				break;
 		}
 	
@@ -82,5 +75,17 @@ public class EntityList extends Common_Executable {
 		System.out.println("In EnitityList OnExit()");
 		super.OnExit();
 
+	};
+	private void Select() {
+		
+		System.out.printf("Enter an elemnt index between 1 and %s%n", this.listSize); //Task prompt for index
+		int tempIndex = super.inputObj.nextInt(); // Task take a int
+		tempIndex--; // make input into an index
+		if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
+			this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
+		} else {
+			System.out.println("EntityList index out of bound");
+		}
+		
 	};
 }
