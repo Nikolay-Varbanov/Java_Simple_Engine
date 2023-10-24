@@ -10,6 +10,9 @@ public abstract class Common_Executable  implements Executable {
 	protected String input = "empty";
 	protected Scanner inputObj = new Scanner(System.in);
 	// Utilities
+	protected abstract void OnInit();
+	protected abstract void OnCleanUp();
+	protected abstract void OnRender();
 	protected void OnInput() {
 
 		System.out.println("Common_Executable now taking input");
