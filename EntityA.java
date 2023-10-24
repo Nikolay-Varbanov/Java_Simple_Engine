@@ -20,10 +20,11 @@ public class EntityA extends Common_Executable {
 		}
 		
 	};
-	private void OnInput() {
+	@Override
+	protected void OnInput() {
 
 		System.out.println("EntityA now taking input");
-		super.input = super.inputObj.nextLine();
+		super.OnInput();
 
 	};
 	private void OnRender() { 
@@ -35,17 +36,16 @@ public class EntityA extends Common_Executable {
 		System.out.println("EntityA Reporting ends here");
 	
 	};
-	private void Controller() { // implementations
+	@Override
+	protected void Controller() { // implementations
 		
-		switch(super.input) { // Task check input
-			case "/exit": // Task check for "/exit" // In all implementations
-				this.OnExit();
-				break;
-		}
+		super.Controller();
 	
 	};
-	private void OnExit() {
+	@Override
+	protected void OnExit() {
 
+		System.out.println("In EnitityA OnExit()");
 		System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 		this.OnInput(); // Task check input for conformation
 		if(super.input.equals("y")) {

@@ -45,10 +45,11 @@ public class EntityList extends Common_Executable {
 	private boolean OnCleanUp() {
 		return false;
 	};
-	private void OnInput() {
+	@Override
+	protected void OnInput() {
 
 		System.out.println("EntityList now taking input");
-		super.input = super.inputObj.nextLine();
+		super.OnInput();
 	
 	};
 	private void OnRender() { 
@@ -56,7 +57,10 @@ public class EntityList extends Common_Executable {
 		System.out.println("EntityList reporting from OnRender()");
 	
 	};
-	private void Controller() { // implementations
+	@Override
+	protected void Controller() { // implementations
+		
+		super.Controller();
 		
 		switch(super.input) { // Task check input
 			case "/select": // Task check for "/select" // Only for EntityList
@@ -67,14 +71,13 @@ public class EntityList extends Common_Executable {
 					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
 				}
 				break;
-			case "/exit": // Task check for "/exit" // In all implementations
-				this.OnExit();
-				break;
 		}
 	
 	};
-	private void OnExit() {
+	@Override
+	protected void OnExit() {
 
+		System.out.println("In EnitityList OnExit()");
 		System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 		this.OnInput(); // Task check input for conformation
 		if(super.input.equals("y")) {
