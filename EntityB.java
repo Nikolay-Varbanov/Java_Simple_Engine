@@ -20,6 +20,12 @@ public class EntityB extends Common_Executable {
 		}
 		
 	};
+	protected boolean OnInit() { 
+		return false;
+	};
+	protected boolean OnCleanUp() {
+		return false;
+	};
 	@Override
 	protected void OnInput() {
 
@@ -27,7 +33,7 @@ public class EntityB extends Common_Executable {
 		super.OnInput();
 
 	};
-	private void OnRender() { 
+	protected void OnRender() { 
 
 		System.out.println("EntityB Reporting for duty"); 
 		System.out.println("input was: "); 
@@ -45,12 +51,8 @@ public class EntityB extends Common_Executable {
 	@Override
 	protected void OnExit() {
 
-		System.out.println("In EnitityList OnExit()");
-		System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
-		this.OnInput(); // Task check input for conformation
-		if(super.input.equals("y")) {
-			super.isRunning = false; //Task set Loop Controll to false
-		}
-
+		System.out.println("In EnitityB OnExit()");
+		super.OnExit();
+		
 	};
 }

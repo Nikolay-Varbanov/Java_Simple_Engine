@@ -10,8 +10,8 @@ public abstract class Common_Executable  implements Executable {
 	protected String input = "empty";
 	protected Scanner inputObj = new Scanner(System.in);
 	// Utilities
-	protected abstract void OnInit();
-	protected abstract void OnCleanUp();
+	protected abstract boolean OnInit();
+	protected abstract boolean OnCleanUp();
 	protected abstract void OnRender();
 	protected void OnInput() {
 
@@ -31,7 +31,12 @@ public abstract class Common_Executable  implements Executable {
 	protected void OnExit() {
 		
 		System.out.println("In Common_Executable OnExit()");
-		
+		// Common exit algorithm
+		System.out.println("Do you want to exit? Enter (y) to confirm"); //Task prompt for conformation "y"
+		this.OnInput(); // Task check input for conformation
+		if(this.input.equals("y")) {
+			this.isRunning = false; //Task set Loop Controll to false
+		}
 	};
 	
 	

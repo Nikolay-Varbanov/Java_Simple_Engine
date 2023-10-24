@@ -39,10 +39,10 @@ public class EntityList extends Common_Executable {
 		}
 		
 	};
-	private boolean OnInit() {
+	protected boolean OnInit() {
 		return false;
 	};
-	private boolean OnCleanUp() {
+	protected boolean OnCleanUp() {
 		return false;
 	};
 	@Override
@@ -52,7 +52,7 @@ public class EntityList extends Common_Executable {
 		super.OnInput();
 	
 	};
-	private void OnRender() { 
+	protected void OnRender() { 
 	
 		System.out.println("EntityList reporting from OnRender()");
 	
@@ -69,6 +69,8 @@ public class EntityList extends Common_Executable {
 				tempIndex--; // make input into an index
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
 					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
+				} else {
+					System.out.println("EntityList index out of bound");
 				}
 				break;
 		}
@@ -78,11 +80,7 @@ public class EntityList extends Common_Executable {
 	protected void OnExit() {
 
 		System.out.println("In EnitityList OnExit()");
-		System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
-		this.OnInput(); // Task check input for conformation
-		if(super.input.equals("y")) {
-			super.isRunning = false; //Task set Loop Controll to false
-		}
+		super.OnExit();
 
 	};
 }
