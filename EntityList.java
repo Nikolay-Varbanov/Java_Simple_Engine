@@ -1,7 +1,12 @@
 public class EntityList implements Executable {
 	// Constructs
 	public EntityList() { 
+	
 		System.out.println("Constructing an EntityList");	
+		this.listSize = 2;
+		this.myExecutables = new Executable[2]; // Create an array of interfaces which has 1 element
+		this.myExecutables[0] = new EntityA(); // Create a implementation of the interface using EnityA in array element 1
+		this.myExecutables[1] = new EntityB(); // Create a implementation of the interface using EnityB in array element 2
 	}
 	// Facilities
 	private String input = "empty";
@@ -21,6 +26,8 @@ public class EntityList implements Executable {
 			if(this.listCurrsor >= 0) {
 				// run list element here
 				this.myExecutables[listCurrsor].OnExecute();
+				
+				this.listCurrsor = -1;
 				
 			} else {
 			
@@ -48,7 +55,7 @@ public class EntityList implements Executable {
 	private void Controller() { // implementations
 		switch(this.input) { // Task check input
 			case "/select": // Task check for "/select" // Only for EntityList
-				System.out.printf("Enter an elemnt index between 0 and %s", this.listSize); //Task prompt for index
+				System.out.printf("Enter an elemnt index between 1 and %s", this.listSize); //Task prompt for index
 				int tempIndex = inputObj.nextInt(); // Task take a int
 				tempIndex--; // make input into an index
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
@@ -59,7 +66,6 @@ public class EntityList implements Executable {
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
 				if(this.input.equals("y")) {
-					System.out.println("Exit confirmed. Setting loop control variable");
 					this.isRunning = false; //Task set Loop Controll to false
 				}
 				break;
