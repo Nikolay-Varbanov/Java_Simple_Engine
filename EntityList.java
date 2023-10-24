@@ -1,4 +1,4 @@
-public class EntityList implements Executable {
+public class EntityList extends Common_Executable {
 	// Constructs
 	public EntityList() { 
 	
@@ -9,24 +9,24 @@ public class EntityList implements Executable {
 		this.myExecutables[1] = new EntityB(); // Create a implementation of the interface using EnityB in array element 2
 	}
 	// Facilities
-	private String input = "empty";
+	//private String input = "empty";
 	private int listSize = 0;
 	private int listCurrsor = -1;
-	private boolean isRunning = false;
+	//private boolean isRunning = false;
 	private Executable myExecutables[];
 	// Utilitites
 	public void OnExecute() {
 		
-		this.isRunning = true;
+		super.isRunning = true;
 		
 		System.out.println("EntityList now executing");
 		
-		while(this.isRunning) {
+		while(super.isRunning) {
 			
 			if(this.listCurrsor >= 0) {
 				// run list element here
 				this.myExecutables[listCurrsor].OnExecute();
-				
+				System.out.printf("Exited myExecutable list running in EnityList is: %s%n", super.isRunning);
 				this.listCurrsor = -1;
 				
 			} else {
@@ -47,16 +47,16 @@ public class EntityList implements Executable {
 	};
 	private void OnInput() {
 		System.out.println("EntityList now taking input");
-		this.input = this.inputObj.nextLine();
+		super.input = super.inputObj.nextLine();
 	};
 	private void OnRender() { 
 		System.out.println("EntityList reporting from OnRender()");
 	};
 	private void Controller() { // implementations
-		switch(this.input) { // Task check input
+		switch(super.input) { // Task check input
 			case "/select": // Task check for "/select" // Only for EntityList
-				System.out.printf("Enter an elemnt index between 1 and %s", this.listSize); //Task prompt for index
-				int tempIndex = inputObj.nextInt(); // Task take a int
+				System.out.printf("Enter an elemnt index between 1 and %s%n", this.listSize); //Task prompt for index
+				int tempIndex = super.inputObj.nextInt(); // Task take a int
 				tempIndex--; // make input into an index
 				if(tempIndex >= 0 && tempIndex < this.listSize) { // Task check index against list size
 					this.listCurrsor = tempIndex; // Task put index from input into currsor // where is currsor
@@ -65,8 +65,8 @@ public class EntityList implements Executable {
 			case "/exit": // Task check for "/exit" // In all implementations
 				System.out.println("Do you want to exit EntityList? enter (y) to confirm"); //Task prompt for conformation "y"
 				this.OnInput(); // Task check input for conformation
-				if(this.input.equals("y")) {
-					this.isRunning = false; //Task set Loop Controll to false
+				if(super.input.equals("y")) {
+					super.isRunning = false; //Task set Loop Controll to false
 				}
 				break;
 		}
